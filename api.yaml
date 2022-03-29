@@ -1,0 +1,44 @@
+swagger: '2.0.'
+info:
+  description: "Mo ta API"
+  version: 1.0.1
+  title: "Swagger for ecommerce"
+
+paths: 
+  /api/products:
+    get:
+      summary: 'lay toan bo san pham'
+      responses:
+        '200':
+          description: "lay san pham thanh cong"
+        '400' :
+          description: 'khong lay duoc san pham' 
+    post: 
+      summary: 'them san pham'
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/component/schema/Product"
+      responses:
+        '200':
+          description: "da them"
+        '400' :
+          description: 'khong the them' 
+
+component:
+  schema: 
+    Product:
+      properties:
+        name:
+          type: string
+          minlength: 5
+        price: 
+          type: integer
+        category: 
+          type: string
+      required:
+        - name
+        - price
+        - category
