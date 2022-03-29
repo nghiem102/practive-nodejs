@@ -42,7 +42,6 @@ export const signin = async (req, res) => {
             })
         }
         const token = jwt.sign({_id: user._id}, "123456", { expiresIn : '1h'})
-        res.cookie('token', token,{ expire: new Date() + 9999 });
         res.json({
             token,
             user: {
