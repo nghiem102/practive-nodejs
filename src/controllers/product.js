@@ -55,3 +55,20 @@ export const update = async (req, res) => {
         })
     }
 }
+
+export const search = async (req,res) => {
+    const value = req.query.q
+    try {
+        const products = await Product.find({$text :{$search: value}}).exec()
+        res.json(products)
+    } catch (error) {
+        res.status(400).json({
+            message: "khong co du lieu"
+        })
+    }
+    
+    
+    
+
+
+}

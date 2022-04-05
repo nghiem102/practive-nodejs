@@ -8,6 +8,7 @@ import YAML from 'yamljs'
 import productRoute from './routers/product'
 import categoryRoute from './routers/category'
 import userRoute from './routers/user'
+import searchRoute from './routers/search'
 
 const app = express()
 const swaggerJSDocs = YAML.load('./api.yaml')
@@ -27,7 +28,7 @@ mongoose.connect('mongodb://localhost:27017/test')
     .then(() => { console.log("conneted DB")})
     .catch(error => {console.log(error);})
 
-const POST = 3001
+const POST = 3002
 app.listen(POST, () =>{
         console.log("dang chay cong", POST);
     }
