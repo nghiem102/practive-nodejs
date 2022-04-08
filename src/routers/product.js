@@ -1,4 +1,4 @@
-import { create, get, getAll, remove, search, update } from "../controllers/product";
+import { create, get, getAll, limit, remove, search, update } from "../controllers/product";
 import { userById } from "../controllers/user";
 import { isAdmin, isAuth, requiredSignin } from "../middlewares/auth";
 
@@ -12,6 +12,7 @@ router.post("/products/:userId",requiredSignin,isAuth,isAdmin, create)
 router.delete("/products/:id",remove)
 router.put("/products/:id",update)
 router.get("/search",search)
+router.get("/limit",limit)
 
 router.param('userId',userById)
 

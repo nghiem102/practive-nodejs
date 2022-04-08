@@ -66,9 +66,15 @@ export const search = async (req,res) => {
             message: "khong co du lieu"
         })
     }
-    
-    
-    
-
-
+}
+export const limit = async (req,res) => {
+    const value = req.query.limit
+    try {
+        const products = await Product.find({}).limit(value).exec()
+        res.json(products)
+    } catch (error) {
+        res.status(400).json({
+            message: "khong co du lieu"
+        })
+    }
 }
